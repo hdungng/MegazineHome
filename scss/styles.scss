@@ -27,7 +27,7 @@ $btn-padding-y-sm: $button-padding-y;
 $btn-padding-y-lg: $button-padding-y;
 $navbar-toggler-border-radius: 5px;
 
-$offcanvas-horizontal-width: 270px;
+$offcanvas-horizontal-width: 200px;
 $carousel-control-transition: opacity 0.5s ease;
 
 // Dropdown
@@ -188,6 +188,11 @@ label {
 .navbar {
     transition: all 0.5s ease-in-out;
 }
+.navbar-nav .dropdown-menu {
+    width: 150px;
+    position: absolute;
+    top: 50px;
+}
 
 .icon {
     display: inline-block;
@@ -309,6 +314,7 @@ html[data-bs-theme="dark"] .menu .item a:hover {
     }
 
     .card-author {
+        margin: 12px 0;
         font-size: 1.2rem;
         font-weight: 500;
         opacity: 0.7;
@@ -319,6 +325,7 @@ html[data-bs-theme="dark"] .menu .item a:hover {
     }
 
     .card-desc {
+        margin-top: 16px;
         display: -webkit-box;
         -webkit-line-clamp: var(--line-clamp, 2);
         -webkit-box-orient: vertical;
@@ -330,9 +337,12 @@ html[data-bs-theme="dark"] .menu .item a:hover {
 }
 
 // Contribution table
-.contribution-info table,
-.feedback {
+.contribution-info table, .feedback .desc {
     font-size: 1.2rem;
+}
+
+.feedback {
+    padding: 16px;
 }
 
 .contribution-info {
@@ -528,6 +538,17 @@ html[data-bs-theme="dark"] .falculty-lists .list-group-item:hover {
     object-fit: cover;
     margin-bottom: 12px;
 }
+.detail-desc .description {
+    padding: 20px;
+    border-left: 5px solid $primary;
+    background: #F2F4F5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+html[data-bs-theme="dark"] .detail-desc .description {
+    background: #2B3041;
+}
+
 .author-contribution-info span {
     color: $primary;
 }
@@ -557,6 +578,16 @@ html[data-bs-theme="dark"] .falculty-lists .list-group-item:hover {
     color: #8d8c8c;
     margin-left: 15px;
 }
+.comment-submit {
+    background: #F2F2F7;
+}
+html[data-bs-theme="dark"] .comment-submit {
+    background: #2b3041;
+}
+
+#brand-sm {
+    display: none;
+} 
 
 @media screen and (max-width: 992px) {
     .right-sidebar {
@@ -572,13 +603,20 @@ html[data-bs-theme="dark"] .falculty-lists .list-group-item:hover {
 
 /* Tablet & mobile */
 @media screen and (max-width: 767px) {
-    .mobile-header {
+    #brand-sm, .mobile-header {
         display: block;
-        margin-left: 12px;
+        margin-right: 24px;
     }
 
-    #sidebar-default {
+    #brand, #sidebar-default {
         display: none;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) { 
+    .card-desc {
+        display: none!important;
     }
 }
 
@@ -630,3 +668,7 @@ html[data-bs-theme="dark"] .falculty-lists .list-group-item:hover {
     }
 }
 
+// User Profile
+.card-user-profile {
+    border: none;
+}

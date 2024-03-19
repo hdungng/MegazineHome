@@ -11,7 +11,6 @@
   <script src="js/darkmode.js"></script>
   <title>Reddit</title>
   <!-- Include FilePond styles and scripts -->
-  <!-- Include FilePond styles and scripts -->
   <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
   <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
@@ -22,9 +21,9 @@
   <nav class="navbar navbar-expand-lg sticky-top border-bottom navbar-sticky" id="navbar">
 
     <div class="container-fluid px-5">
-
       <a class="navbar-brand" href="index.html">
         <img id="brand" src="images/angular-logo.png" alt="" width="100" />
+        <img id="brand-sm" src="images/angular-logo-sm.png" alt="" width="30" />
       </a>
       <a href="#sidenav" class="mobile-header" aria-controls="sidenav" role="button" data-bs-toggle="offcanvas">
         <i class="fa-solid fa-bars fa-xl"></i>
@@ -35,8 +34,26 @@
           <i class="fa-regular fa-moon fa-xl" id="darkModeSwitch" style="color: #4963C1;"></i>
         </li>
 
-        <li class="nav-item">
-          <a href="#" class="nav-link btn btn-primary text-light px-5 fw-medium py-3 mx-4">Login</a>
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button"
+            aria-haspopup="false" aria-expanded="false">
+            <span class="account-user-avatar">
+              <img src="images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+              <span class="mx-2 fullname d-sm-inline d-none">Tosha Minner</span>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
+
+            <a href="user-profile.html" class="dropdown-item">
+              <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
+              <span>My Account</span>
+            </a>
+
+            <a href="auth-logout-2.php" class="dropdown-item">
+              <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
+              <span>Logout</span>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -75,7 +92,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="#">
+                  <a href="user-agreement.html">
                     <div class="icon">
                       <i class="fa-solid fa-user-lock fa-xl"></i>
                     </div>
@@ -111,52 +128,53 @@
           <h1 class="fw-bold mt-3">Add Contribution</h1>
 
           <form action="" method="post" class="mt-5" id="add-contribution">
-            <div class="row mb-5">
-              <div class="col-6">
+            <div class="row">
+              <div class="col-sm-6 mb-5">
                 <label for="studentName" class="form-label">Student Name <span class="text-danger">*</span></label>
                 <input class="form-control" id="studentName" name="studentName" type="text" placeholder="John Doe"
                   disabled>
               </div>
-              <div class="col-6">
+              <div class="col-sm-6 mb-5">
                 <label for="studentID" class="form-label">Student ID <span class="text-danger">*</span></label>
                 <input class="form-control" id="studentID" name="studentID" type="text" placeholder="GCS2108xx"
                   disabled>
               </div>
             </div>
-            <div class="row mb-5">
-              <div class="col-7">
+            <div class="row">
+              <div class="col-sm-6 mb-5">
                 <label for="studentEmail" class="form-label">Email <span class="text-danger">*</span></label>
                 <input class="form-control" id="studentEmail" name="studentEmail" type="email"
                   placeholder="johndoe@gmail.com" disabled>
               </div>
-              <div class="col-5">
+              <div class="col-sm-6 mb-5">
                 <label for="studentFaculty" class="form-label">Faculty <span class="text-danger">*</span></label>
                 <input class="form-control" id="studentFaculty" name="studentFaculty" type="text"
                   placeholder="Information Techonology" disabled>
               </div>
             </div>
-            <div class="row mb-5">
-              <div class="col-md-6 mb-5">
+            <div class="row">
+              <div class="col-sm-6 mb-5">
                 <label for="contributionName" class="form-label">Contribution Name <span
                     class="text-danger">*</span></label>
                 <input class="form-control" id="contributionName" name="contributionName" type="text"
                   placeholder="Enter contribution name...">
               </div>
-              <div class="col-md-6">
+              <div class="col-sm-6 mb-5">
                 <label for="wordDocument" class="form-label">Word Document <span class="text-danger">*</span></label>
                 <input class="form-control" type="file" id="wordDocument">
               </div>
 
             </div>
-            <div class="row mb-5">
+            <div class="row">
               <div class="col-md-6 mb-5">
                 <label for="contributionImages" class="form-label">Contribution Images <span
                     class="text-danger">*</span></label>
                 <input class="filepond" type="file" id="contributionImages" multiple>
               </div>
               <div class="col-md-6 mb-5">
-                <label for="note" class="mb-2">Note</label>
-                <textarea name="note" class="form-control main_content" rows="5"></textarea>
+                <label for="description" class="mb-2">Contribution Description <span
+                  class="text-danger">*</span></label>
+                <textarea name="description" class="form-control main_content" rows="5"></textarea>
                 <div class="hstack mt-5">
                   <button class="btn btn-outline-primary square-btn ms-auto" type="button" data-bs-toggle="modal"
                     data-bs-target="#term&condition">Submit</button>
@@ -302,14 +320,7 @@
 
       // Set up image preview container
       const imagePreviewContainer = document.getElementById('image-preview-container');
-      // pond.on('addfile', (error, file) => {
-      //   if (!error) {
-      //     const preview = document.createElement('img');
-      //     preview.src = URL.createObjectURL(file.file);
-      //     preview.alt = file.filename;
-      //     imagePreviewContainer.appendChild(preview);
-      //   }
-      // });
+
     });
   </script>
 </body>

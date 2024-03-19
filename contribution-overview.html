@@ -10,16 +10,16 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/darkmode.js"></script>
   <title>Reddit</title>
-  <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.3/dist/quill.snow.css" rel="stylesheet" />
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg sticky-top border-bottom navbar-sticky" id="navbar">
 
     <div class="container-fluid px-5">
-
       <a class="navbar-brand" href="index.html">
         <img id="brand" src="images/angular-logo.png" alt="" width="100" />
+        <img id="brand-sm" src="images/angular-logo-sm.png" alt="" width="30" />
       </a>
       <a href="#sidenav" class="mobile-header" aria-controls="sidenav" role="button" data-bs-toggle="offcanvas">
         <i class="fa-solid fa-bars fa-xl"></i>
@@ -30,8 +30,26 @@
           <i class="fa-regular fa-moon fa-xl" id="darkModeSwitch" style="color: #4963C1;"></i>
         </li>
 
-        <li class="nav-item">
-          <a href="#" class="nav-link btn btn-primary text-light px-5 fw-medium py-3 mx-4">Login</a>
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button"
+            aria-haspopup="false" aria-expanded="false">
+            <span class="account-user-avatar">
+              <img src="images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+              <span class="mx-2 fullname d-sm-inline d-none">Tosha Minner</span>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
+
+            <a href="user-profile.html" class="dropdown-item">
+              <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
+              <span>My Account</span>
+            </a>
+
+            <a href="auth-logout-2.php" class="dropdown-item">
+              <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
+              <span>Logout</span>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -70,7 +88,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="#">
+                  <a href="user-agreement.html">
                     <div class="icon">
                       <i class="fa-solid fa-user-lock fa-xl"></i>
                     </div>
@@ -143,47 +161,56 @@
                 <tr>
                   <th>Edit</th>
                   <td>
-                    <a href="./contribution-add-form.html" class="btn btn-outline-primary square-btn">Edit Contribution</a>
+                    <a href="./contribution-add-form.html" class="btn btn-outline-primary square-btn">Edit
+                      Contribution</a>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div class="feedback mt-5">
-            <h1 class="fw-bold">Feedbacks</h1>
-            <ul class="list-group">
-              <li class="list-group-item">
-                <div class="comment-block p-3">
-                  <p class="commentator">John Doe - ...... Faculty <span>commented 3 days ago</span></p>
-                  <div class="comment-desc">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatibus, ullam obcaecati
-                      numquam ipsam odit nesciunt, facilis cum id tempore totam fugit? Fuga neque minus blanditiis sed
-                      eum aliquam id!</p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="comment-block p-3">
-                  <p class="commentator">Hi Doe - ...... Faculty <span>commented 2 days ago</span></p>
-                  <div class="comment-desc">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatibus, ullam obcaecati
-                      numquam ipsam odit nesciunt, facilis cum id tempore totam fugit? Fuga neque minus blanditiis sed
-                      eum aliquam id!</p>
-                  </div>
-              </li>
-            </ul>
+          <div class="card">
+            <div class="card-body feedback">
+              <!-- end dropdown-->
 
-            <div class="reply mt-5">
-              <form action="" method="POST">
-                <label for="comment" class="mb-2">Your Comment</label>
-                <textarea name="comment" class="form-control main_content" id="editor"></textarea>
-                <div class="hstack mt-5">
-                  <button class="btn btn-outline-primary square-btn px-5 py-3 ms-auto"
-                    type="submit">Comment</button>
+              <h4 class="mb-4 mt-0 fs-16 fw-bold">Comments (51)</h4>
+
+              <div class="clearfix"></div>
+
+              <div class="d-flex align-items-start">
+                <img class="me-2 rounded-circle" src="images/users/avatar-3.jpg" alt="Generic placeholder image"
+                  height="32" />
+                <div class="w-100 ms-3">
+                  <h5 class="mt-0 fw-semibold">Jeremy Tomlinson <small class="text-muted float-end">5
+                      hours ago</small></h5>
+                  <div class="desc">
+                    Nice work, makes me think of The Money Pit.
+                  </div>
                 </div>
-              </form>
+              </div>
+
+              <div class="d-flex align-items-start mt-3">
+                <img class="me-2 rounded-circle" src="images/users/avatar-5.jpg" alt="Generic placeholder image"
+                  height="32" />
+                <div class="w-100 ms-3">
+                  <h5 class="mt-0 fw-semibold">Kevin Martinez <small class="text-muted float-end">1 day
+                      ago</small></h5>
+                  <div class="desc">It would be very nice to have.</div>
+                </div>
+              </div>
+
+              <div class="border rounded mt-4">
+                <form action="#" class="comment-area-box">
+                  <textarea rows="3" class="form-control border-0 resize-none" placeholder="Your comment..."></textarea>
+                  <div class="p-2 d-flex comment-submit justify-content-between align-items-center">
+                    <button type="submit" class="btn btn-outline-primary square-btn ms-auto"><i
+                        class="ri-send-plane-2 me-1"></i>Submit</button>
+                  </div>
+                </form>
+              </div>
+              <!-- end .border-->
             </div>
+            <!-- end card-body-->
           </div>
         </div>
 
@@ -253,9 +280,14 @@
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
+  <!-- Include the Quill library -->
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.3/dist/quill.js"></script>
+
+  <!-- Initialize Quill editor -->
   <script>
-    // Initialize CKEditor
-    CKEDITOR.replace('editor');
+    const quill = new Quill('#editor', {
+      theme: 'snow'
+    });
   </script>
 </body>
 

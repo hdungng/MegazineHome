@@ -9,11 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/darkmode.js"></script>
-
-
-
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-
   <link rel="stylesheet" href="css/images-grid.css">
   <title>Reddit</title>
 </head>
@@ -22,9 +18,9 @@
   <nav class="navbar navbar-expand-lg sticky-top border-bottom navbar-sticky" id="navbar">
 
     <div class="container-fluid px-5">
-
       <a class="navbar-brand" href="index.html">
         <img id="brand" src="images/angular-logo.png" alt="" width="100" />
+        <img id="brand-sm" src="images/angular-logo-sm.png" alt="" width="30" />
       </a>
       <a href="#sidenav" class="mobile-header" aria-controls="sidenav" role="button" data-bs-toggle="offcanvas">
         <i class="fa-solid fa-bars fa-xl"></i>
@@ -35,8 +31,26 @@
           <i class="fa-regular fa-moon fa-xl" id="darkModeSwitch" style="color: #4963C1;"></i>
         </li>
 
-        <li class="nav-item">
-          <a href="#" class="nav-link btn btn-primary text-light px-5 fw-medium py-3 mx-4">Login</a>
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button"
+            aria-haspopup="false" aria-expanded="false">
+            <span class="account-user-avatar">
+              <img src="images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+              <span class="mx-2 fullname d-sm-inline d-none">Tosha Minner</span>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
+
+            <a href="user-profile.html" class="dropdown-item">
+              <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
+              <span>My Account</span>
+            </a>
+
+            <a href="auth-logout-2.php" class="dropdown-item">
+              <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
+              <span>Logout</span>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -75,7 +89,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="#">
+                  <a href="user-agreement.html">
                     <div class="icon">
                       <i class="fa-solid fa-user-lock fa-xl"></i>
                     </div>
@@ -114,6 +128,11 @@
             <div id="gallery7"></div>
           </div>
           <div class="detail-desc my-5">
+            <div class="description my-5">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam possimus dicta consequuntur autem
+              expedita, voluptates iste? Tenetur porro reprehenderit qui quibusdam soluta eveniet. Quae perspiciatis,
+              accusantium esse voluptate debitis quis.
+            </div>
             <p>In the vast landscape of gaming, League of Legends: Mastery with Yi stands as a testament to immersive
               experiences and
               intricate gameplay. As players venture into this virtual realm, a question lingers: Do they truly
@@ -147,7 +166,7 @@
               curiosity.</p>
           </div>
           <div class="contribution-stats">
-            <div class="hstack gap-5">
+            <div class="hstack gap-5 justify-content-end">
               <div class="like-box hstack gap-3">
                 <span><i class="fa-solid fa-heart fa-xl" style="color: #FC6589;"></i></span>
                 <span>50</span>
@@ -263,7 +282,7 @@
   </div>
 
   <!-- <script src="js/jquery.min.js"></script>  -->
-  <script src="js/popper.js"></script> 
+  <script src="js/popper.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 
